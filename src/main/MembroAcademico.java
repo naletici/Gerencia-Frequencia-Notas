@@ -1,3 +1,4 @@
+package src.main;
 public abstract class MembroAcademico {
     private String nome;
     private String matricula;

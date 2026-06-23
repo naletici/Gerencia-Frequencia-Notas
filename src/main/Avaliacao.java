@@ -1,3 +1,4 @@
+package src.main;
 public abstract class Avaliacao {
     private String nomeAvaliacao;
     private double notaObtida;
