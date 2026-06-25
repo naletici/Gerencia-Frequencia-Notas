@@ -41,6 +41,8 @@ public class Main {
                 System.out.println("\nEncerrando Gerenciador...");
                 System.out.println("\nEncerrado com sucesso!");
                 break;
+            default:
+                System.out.println("\nComando Inválido! Tente novamente.");
         }
     }
 }
