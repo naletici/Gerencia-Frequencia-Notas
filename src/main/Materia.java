@@ -8,7 +8,7 @@ public class Materia {
         return nomeMateria;
     }
 
-    public String setNomeMateria(String nomeMateria){
+    public void setNomeMateria(String nomeMateria){
         this.nomeMateria = nomeMateria;
     }
 
@@ -16,7 +16,7 @@ public class Materia {
         return cargaHorariaTotal;
     }
 
-    public int setCargaHorariaTotal(int cargaHorariaTotal) {
+    public void setCargaHorariaTotal(int cargaHorariaTotal) {
         this.cargaHorariaTotal = cargaHorariaTotal;
     }
 }
