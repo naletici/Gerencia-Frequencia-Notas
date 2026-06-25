@@ -9,7 +9,7 @@ public abstract class Avaliacao {
         this.notaObtida = notaObtida;
     }
   
-    public abstract double calcularNotaDefinitiva();
+    public abstract double calcularNotaTotal();
 
     protected void validarNota(double nota) {
         if (nota < 0.0 || nota > 10.0) {
