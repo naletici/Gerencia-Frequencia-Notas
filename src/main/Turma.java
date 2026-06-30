@@ -43,7 +43,12 @@ public class Turma {
         }
 
         for (int i = 0; i < listaAlunos.size(); i++) {
-        
+            Aluno aluno = listaAlunos.get(i);
+            
+            System.out.println();
+            aluno.gerarRelatorio();
+            System.out.println("Situação final: " + aluno.calcularSituacao(materia.getCargaHorariaTotal()));
+            System.out.println("---------------------------------");
         }
     }
 
