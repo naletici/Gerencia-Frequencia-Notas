@@ -26,7 +26,16 @@ public class Turma {
     }
 
     public void emitirRelatorioTurma() {
+        if (materia == null || professor == null) {
+            System.out.println("\n[ERRO] A turma ainda não possui Matéria ou Professor cadastrados.");
+            System.out.println("Por favor, utilize as opções [1] e [2] do menu primeiro");
+            return;
+        }
 
+        System.out.println("\\n=================================");
+        System.out.println("MATÉRIA: " + materia.getNomeMateria() + " (" + materia.getCargaHorariaTotal() + "h)");
+        professor.gerarRelatorio();
+        System.out.println("\\n=================================");
     }
 
     public Materia getMateria() {
