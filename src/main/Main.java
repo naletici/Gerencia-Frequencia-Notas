@@ -80,4 +80,44 @@ public class Main {
                 System.out.println("\nComando Inválido! Tente novamente.");
         }
     }
+
+    private static void cadastrarMateria(){ 
+
+    }
+
+    private static void cadastrarProfessor() {
+
+    }
+
+    private static void cadastrarAluno() {
+
+    }
+
+    private static void lancarAvaliacao() {
+        
+    }
+
+    private static void registrarFaltasAluno() {
+
+    }
+
+    private static void emitirRelatorio() {
+
+    }
+
+    private static void removerMateria() {
+
+    }
+
+    private static void removerProfessor() {
+
+    }
+
+    private static void removerAluno() {
+
+    }
+
+    private static void listarAlunos(List<Aluno> alunos) {
+
+    }
 }
