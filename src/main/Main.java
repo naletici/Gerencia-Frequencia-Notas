@@ -91,7 +91,7 @@ public class Main {
             int carga = Integer.parseInt(scanner.nextLine());
 
             Materia m = new Materia();
-            m.setNome(nome);
+            m.setNomeMateria(nome);
             m.setCargaHorariaTotal(carga);
 
             turmaAtiva.setMateria(m);
