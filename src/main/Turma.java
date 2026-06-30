@@ -20,4 +20,32 @@ public class Turma {
         }
         return false;
     }
+
+    public void removerMateria() {
+        this.materia = null;
+    }
+
+    public void emitirRelatorioTurma() {
+
+    }
+
+    public Materia getMateria() {
+        return materia;
+    }
+
+    public void setMateria(Materia materia) {
+        this.materia = materia;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
+    public List<Aluno> getListaAlunos() {
+        return listaAlunos;
+    }
 }
