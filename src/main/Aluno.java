@@ -55,4 +55,25 @@ public class Aluno extends MembroAcademico implements RelatorioGeravel {
         }
     }
 
+    @Override
+    public void gerarRelatorio() {
+        System.out.printf("Aluno(a): %s | Matrícula %s | Faltas: %d\n");
+        System.out.println("  [Nota das Avaliações]:");
+        if (avaliacoes.isEmpty()) {
+            System.out.println("  - Nenhuma Avaliação registrada ainda.");
+        } else {
+            for (int i = 0; i < avaliacoes.size(); i++) {
+                Avaliacao a = avaliacoes.get(i);
+                System.out.printf(" %s: %.2f\n", a.getNomeAvaliacao(), a.calcularNotaTotal());
+            }
+        }
+
+        System.out.printf("  [Média Parcial]: %.2f\n", calcularMediaParcial());
+        if (notaFinal != -1.0) {
+            System.out.printf("  [Nota da Final]: %.2f\n", notaFinal);
+        }
+    }
+
+    
+
 }
