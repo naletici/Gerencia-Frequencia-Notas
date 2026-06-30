@@ -36,6 +36,15 @@ public class Turma {
         System.out.println("MATÉRIA: " + materia.getNomeMateria() + " (" + materia.getCargaHorariaTotal() + "h)");
         professor.gerarRelatorio();
         System.out.println("\\n=================================");
+
+        if (listaAlunos.isEmpty()) {
+            System.out.println("Nenhum aluno matriculado na turma.");
+            return;
+        }
+
+        for (int i = 0; i < listaAlunos.size(); i++) {
+        
+        }
     }
 
     public Materia getMateria() {
