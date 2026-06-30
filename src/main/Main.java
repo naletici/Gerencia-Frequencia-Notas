@@ -46,22 +46,31 @@ public class Main {
     private static void escolherOpcao(int opcao){
         switch(opcao) {
             case 1:
+                cadastrarMateria();
                 break;
             case 2:
+                cadastrarProfessor();
                 break;
             case 3:
+                cadastrarAluno();
                 break;
             case 4:
+                lancarAvaliacao();
                 break;
             case 5:
+                registrarFaltasAluno();
                 break;
             case 6:
+                emitirRelatorio();
                 break;
             case 7:
+                removerMateria();
                 break;
             case 8:
+                removerProfessor();
                 break;
             case 9:
+                removerAluno();
                 break;
             case 10:
                 System.out.println("\nEncerrando Gerenciador...");
