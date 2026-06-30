@@ -82,15 +82,54 @@ public class Main {
     }
 
     private static void cadastrarMateria(){ 
+        System.out.println("\n--- Cadastro de Matéria ---");
+        System.out.print("Nome da Matéria: ");
+        String nome = scanner.nextLine();
 
+        try {
+            System.out.print("Carga Horária Total (ex: 80): ");
+            int carga = Integer.parseInt(scanner.nextLine());
+
+            Materia m = new Materia();
+            m.setNome(nome);
+            m.setCargaHorariaTotal(carga);
+
+            turmaAtiva.setMateria(m);
+            System.out.println("[SUCESSO] Matéria cadastrada com sucesso!");
+        } catch (NumberFormatException e) {
+            System.out.println("[ERRO] A carga horária deve ser um número inteiro.");
+        }
     }
 
     private static void cadastrarProfessor() {
+        System.out.println("\n--- Cadastro de Professor ---");
+        System.out.print("Nome do Professor: ");
+        String nome = scanner.nextLine();
+        System.out.print("Matrícula do Professor: ");
+        String matricula = scanner.nextLine();
+ 
+        Professor p = new Professor();
+        p.setNome(nome);
+        p.setMatricula(matricula);
+ 
+        turmaAtiva.setProfessor(p);
+        System.out.println("[SUCESSO] Professor vinculado à turma com sucesso!");
 
     }
 
     private static void cadastrarAluno() {
+        System.out.println("\n--- Cadastro de Aluno ---");
+        System.out.print("Nome do Aluno: ");
+        String nome = scanner.nextLine();
+        System.out.print("Matrícula: ");
+        String matricula = scanner.nextLine();
 
+        Aluno novoAluno = new Aluno();
+        novoAluno.setNome(nome);
+        novoAluno.setMatricula(matricula);
+
+        turmaAtiva.matricularAluno(novoAluno);
+        System.out.println("[SUCESSO] Aluno cadastrado na turma com sucesso!");
     }
 
     private static void lancarAvaliacao() {
