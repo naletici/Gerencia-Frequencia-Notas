@@ -29,7 +29,51 @@ public class Turma {
     public void removerProfessor() {
         this.professor = null;
     }
-    
+
+        public void listarMaterias() {
+        System.out.println("\n=== LISTAGEM DE MATÉRIAS ===");
+ 
+        if (materia == null) {
+            System.out.println("[AVISO] Nenhuma matéria cadastrada na turma.");
+            return;
+        }
+ 
+        System.out.printf("Matéria : %s\n", materia.getNomeMateria());
+        System.out.printf("Carga Horária: %dh\n", materia.getCargaHorariaTotal());
+        System.out.printf("Limite de Faltas: %.0f aulas\n", materia.getCargaHorariaTotal() * 0.25);
+ 
+        System.out.println("Alunos matriculados:");
+        if (listaAlunos.isEmpty()) {
+            System.out.println("  - Nenhum aluno matriculado.");
+        } else {
+            for (Aluno a : listaAlunos) {
+                System.out.printf("  - %s (Matrícula: %s) | Faltas: %d\n",
+                        a.getNome(), a.getMatricula(), a.getFaltas());
+            }
+        }
+        System.out.println("============================");
+    }
+ 
+    public void listarProfessores() {
+        System.out.println("\n=== LISTAGEM DE PROFESSORES ===");
+ 
+        if (professor == null) {
+            System.out.println("[AVISO] Nenhum professor cadastrado na turma.");
+            return;
+        }
+ 
+        System.out.printf("Professor : %s\n", professor.getNome());
+        System.out.printf("Matrícula : %s\n", professor.getMatricula());
+ 
+        if (materia != null) {
+            System.out.printf("Lecionando: %s (%dh)\n",
+                    materia.getNomeMateria(), materia.getCargaHorariaTotal());
+        } else {
+            System.out.println("Lecionando: Nenhuma matéria associada.");
+        }
+        System.out.println("================================");
+    }
+
     public void emitirRelatorioTurma() {
         if (materia == null || professor == null) {
             System.out.println("\n[ERRO] A turma ainda não possui Matéria ou Professor cadastrados.");

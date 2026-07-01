@@ -18,7 +18,7 @@ public class Main {
                 System.out.println("[ERRO INESPERADO] " + e.getMessage());
             }
         }
-        while (opcao != 10);
+        while (opcao != 12);
     }
 
     private static void exibirMenu() {
@@ -32,14 +32,16 @@ public class Main {
         System.out.println("--- Lançamentos ---");
         System.out.println("[4]. Lançar Notas.");
         System.out.println("[5]. Lançar Faltas.");
-        System.out.println("--- Relatório ---");
+        System.out.println("--- Consultas ---");
         System.out.println("[6]. Gerar Relatório.");
+        System.out.println("[7]. Listar Matérias.");
+        System.out.println("[8]. Listar Professores.");
         System.out.println("--- Remoções ---");
-        System.out.println("[7]. Remover Matéria");
-        System.out.println("[8]. Remover Professor");
-        System.out.println("[9]. Remover Aluno");
+        System.out.println("[9]. Remover Matéria.");
+        System.out.println("[10]. Remover Professor.");
+        System.out.println("[11]. Remover Aluno.");
         System.out.println("----------------------------------------");
-        System.out.println("[10]. Sair.");
+        System.out.println("[12]. Sair.");
         System.out.println("Escolha uma opção: ");
     }
 
@@ -64,15 +66,21 @@ public class Main {
                 emitirRelatorio();
                 break;
             case 7:
-                removerMateria();
+                listarMaterias();
                 break;
             case 8:
-                removerProfessor();
+                listarProfessores();
                 break;
             case 9:
-                removerAluno();
+                removerMateria();
                 break;
             case 10:
+                removerProfessor();
+                break;
+            case 11:
+                removerAluno();
+                break;
+            case 12:
                 System.out.println("\nEncerrando Gerenciador...");
                 System.out.println("\nEncerrado com sucesso!");
                 break;
@@ -233,6 +241,15 @@ public class Main {
         System.out.println("\n --- Emitindo Relatório Geral ---");
         turmaAtiva.emitirRelatorioTurma();
     }
+
+    private static void listarMaterias() {
+        turmaAtiva.listarMaterias();
+    }
+ 
+    private static void listarProfessores() {
+        turmaAtiva.listarProfessores();
+    }
+
 
     private static void removerMateria() {
         System.out.println("\n--- Remover Matéria ---");
