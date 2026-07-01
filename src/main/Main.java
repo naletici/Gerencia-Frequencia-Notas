@@ -133,7 +133,69 @@ public class Main {
     }
 
     private static void lancarAvaliacao() {
-        
+        List<Aluno> listaAlunos = turmaAtiva.getListaAlunos();
+
+        if(listaAlunos == null || listaAlunos.isEmpty()) {
+            System.out.println("\n[AVISO] Nenhum aluno matriculado na turma.");
+            return;
+        }
+
+        listarAlunos(listaAlunos);
+        System.out.println("Selecione o índice do aluno para lançar a nota.");
+
+        try {
+            int indice = Integer.parseInt(scanner.nextLine());
+
+            if (indice < 0 || indice >= listaAlunos.size()) {
+                System.out.println("[ERRO] Índice de aluno inválido.");
+                return;
+            }
+
+            Aluno alunoSelecionado = listaAlunos.get(indice);
+
+            System.out.println("[1]. Prova Normal");
+            System.out.println("[2]. Trabalho Prático");
+            System.out.println("[3]. Avaliação Final");
+            System.out.print("Escolha o tipo de avaliação: ");
+            int tipo = Integer.parseInt(scanner.nextLine());
+            
+            if (tipo == 1) {
+                System.out.print("Nome da Prova: ");
+                String nomeProva = scanner.nextLine();
+                System.out.print("Nota Obtida: ");
+                double notaProva = Double.parseDouble(scanner.nextLine());
+
+                Prova prova = new Prova(nomeProva, notaProva);
+                alunoSelecionado.adicionarAvaliacao(prova);
+                System.out.println("[SUCESSO] Prova registrada com sucesso.");
+
+            } else if (tipo == 2) {
+                System.out.print("Nome do Trabalho: ");
+                String nomeTrab = scanner.nextLine();
+                System.out.print("Nota Obtida: ");
+                double notaTrab = Double.parseDouble(scanner.nextLine());
+                System.out.print("Peso do Trabalho: ");
+                double pesoTrab = Double.parseDouble(scanner.nextLine());
+ 
+                TrabalhoPratico trabalho = new TrabalhoPratico(nomeTrab, notaTrab, pesoTrab);
+                alunoSelecionado.adicionarAvaliacao(trabalho);
+                System.out.println("[SUCESSO] Trabalho registrado com sucesso.");
+
+            } else if (tipo == 3) {
+                System.out.print("Nota da Avaliação Final (0 a 10): ");
+                double notaFinal = Double.parseDouble(scanner.nextLine());
+                alunoSelecionado.setNotaFinal(notaFinal);
+                System.out.println("[SUCESSO] Nota final (Recuperação) registrada com sucesso.");
+ 
+            } else {
+                System.out.println("[ERRO] Tipo de avaliação inválido.");
+            }
+        } catch (NotaInvalidaException e) {
+            System.out.println("\n[ERRO DE VALIDAÇÃO] Falha ao registrar nota: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("\n[ERRO] Por favor, digite um valor numérico válido.");
+        }
+
     }
 
     private static void registrarFaltasAluno() {
