@@ -199,18 +199,81 @@ public class Main {
     }
 
     private static void registrarFaltasAluno() {
+        List<Aluno> listaAlunos = turmaAtiva.getListaAlunos();
+ 
+        if (listaAlunos == null || listaAlunos.isEmpty()) {
+            System.out.println("\n[AVISO] Nenhum aluno matriculado na turma.");
+            return;
+        }
 
+        listarAlunos(listaAlunos);
+        System.out.print("Selecione o índice do aluno: ");
+
+        try {
+            int indice = Integer.parseInt(scanner.nextLine());
+ 
+            if (indice < 0 || indice >= listaAlunos.size()) {
+                System.out.println("[ERRO] Índice inválido.");
+                return;
+            }
+ 
+            System.out.print("Digite a quantidade de faltas a adicionar: ");
+            int faltas = Integer.parseInt(scanner.nextLine());
+ 
+            Aluno alunoSelecionado = listaAlunos.get(indice);
+            alunoSelecionado.registrarFaltas(faltas);
+ 
+            System.out.println("[SUCESSO] Faltas computadas. Total atual do aluno: " + alunoSelecionado.getFaltas());
+        } catch (NumberFormatException e) {
+            System.out.println("\n[ERRO] Por favor, digite um valor numérico inteiro.");
+        }
     }
 
     private static void emitirRelatorio() {
-
+        System.out.println("\n --- Emitindo Relatório Geral ---");
+        turmaAtiva.emitirRelatorioTurma();
     }
 
     private static void removerMateria() {
+        System.out.println("\n--- Remover Matéria ---");
+ 
+        if (turmaAtiva.getMateria() == null) {
+            System.out.println("[AVISO] Não há nenhuma matéria cadastrada para remover.");
+            return;
+        }
+ 
+        System.out.println("Matéria atual: " + turmaAtiva.getMateria().getNomeMateria());
+        System.out.print("Confirma a remoção? (S/N): ");
+        String confirmacao = scanner.nextLine();
+ 
+        if (confirmacao.equalsIgnoreCase("S")) {
+            turmaAtiva.removerMateria();
+            System.out.println("[SUCESSO] Matéria removida com sucesso!");
+        } else {
+            System.out.println("[CANCELADO] Operação cancelada.");
+        }
 
     }
 
     private static void removerProfessor() {
+        System.out.println("\n--- Remover Professor ---");
+ 
+        if (turmaAtiva.getProfessor() == null) {
+            System.out.println("[AVISO] Não há nenhum professor cadastrado para remover.");
+            return;
+        }
+ 
+        System.out.println("Professor atual: " + turmaAtiva.getProfessor().getNome()
+                + " (Matrícula: " + turmaAtiva.getProfessor().getMatricula() + ")");
+        System.out.print("Confirma a remoção? (S/N): ");
+        String confirmacao = scanner.nextLine();
+ 
+        if (confirmacao.equalsIgnoreCase("S")) {
+            turmaAtiva.removerProfessor();
+            System.out.println("[SUCESSO] Professor removido com sucesso!");
+        } else {
+            System.out.println("[CANCELADO] Operação cancelada.");
+        }
 
     }
 

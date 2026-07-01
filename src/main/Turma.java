@@ -21,10 +21,15 @@ public class Turma {
         return false;
     }
 
+    
     public void removerMateria() {
         this.materia = null;
     }
 
+    public void removerProfessor() {
+        this.professor = null;
+    }
+    
     public void emitirRelatorioTurma() {
         if (materia == null || professor == null) {
             System.out.println("\n[ERRO] A turma ainda não possui Matéria ou Professor cadastrados.");
