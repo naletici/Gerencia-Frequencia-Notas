@@ -74,6 +74,19 @@ public class Aluno extends MembroAcademico implements RelatorioGeravel {
         }
     }
 
-    
+    public List<Avaliacao> getAvaliacoes() {
+        return avaliacoes;
+    }
+
+    public void setNotaFinal(double notaFinal) {
+        if (notaFinal < 0.0 || notaFinal > 10.0) {
+            throw new NotaInvalidaException("A nota final deve estar entre 0.0 e 10.0");
+        }
+        this.notaFinal = notaFinal;
+    }
+
+    public int getFaltas() {
+        return faltas;
+    }
 
 }

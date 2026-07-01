@@ -3,6 +3,8 @@ public abstract class MembroAcademico {
     private String nome;
     private String matricula;
 
+    public MembroAcademico() {}
+
     public MembroAcademico(String nome, String matricula) {
         this.nome = nome;
         this.matricula = matricula;

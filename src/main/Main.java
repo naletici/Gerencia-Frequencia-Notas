@@ -43,7 +43,7 @@ public class Main {
         System.out.println("Escolha uma opção: ");
     }
 
-    private static void escolherOpcao(int opcao){
+    private static void processarOpcao(int opcao){
         switch(opcao) {
             case 1:
                 cadastrarMateria();
@@ -278,10 +278,46 @@ public class Main {
     }
 
     private static void removerAluno() {
-
+        System.out.println("\n--- Remover Aluno ---");
+        List<Aluno> listaAlunos = turmaAtiva.getListaAlunos();
+ 
+        if (listaAlunos == null || listaAlunos.isEmpty()) {
+            System.out.println("[AVISO] Nenhum aluno matriculado na turma.");
+            return;
+        }
+ 
+        listarAlunos(listaAlunos);
+        System.out.print("Selecione o índice do aluno a remover: ");
+ 
+        try {
+            int indice = Integer.parseInt(scanner.nextLine());
+ 
+            if (indice < 0 || indice >= listaAlunos.size()) {
+                System.out.println("[ERRO] Índice inválido.");
+                return;
+            }
+ 
+            Aluno aluno = listaAlunos.get(indice);
+            System.out.printf("Confirma a remoção de %s (Matrícula: %s)? (S/N): ",
+                    aluno.getNome(), aluno.getMatricula());
+            String confirmacao = scanner.nextLine();
+ 
+            if (confirmacao.equalsIgnoreCase("S")) {
+                turmaAtiva.removerAluno(indice);
+                System.out.println("[SUCESSO] Aluno removido com sucesso!");
+            } else {
+                System.out.println("[CANCELADO] Operação cancelada.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("\n[ERRO] Por favor, digite um valor numérico inteiro.");
+        }
     }
 
     private static void listarAlunos(List<Aluno> alunos) {
-
+        System.out.println("\n--- Alunos Matriculados ---");
+        for (int i = 0; i < alunos.size(); i++) {
+            Aluno a = alunos.get(i);
+            System.out.printf("[%d] Matrícula: %s | Nome: %s\n", i, a.getMatricula(), a.getNome());
+        }
     }
 }
