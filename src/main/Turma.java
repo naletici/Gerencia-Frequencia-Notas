@@ -81,10 +81,10 @@ public class Turma {
             return;
         }
 
-        System.out.println("\\n=================================");
+        System.out.println("\n=================================");
         System.out.println("MATÉRIA: " + materia.getNomeMateria() + " (" + materia.getCargaHorariaTotal() + "h)");
         professor.gerarRelatorio();
-        System.out.println("\\n=================================");
+        System.out.println("=================================");
 
         if (listaAlunos.isEmpty()) {
             System.out.println("Nenhum aluno matriculado na turma.");
