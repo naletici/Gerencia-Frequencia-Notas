@@ -1,10 +1,23 @@
 package main;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * Classe principal do projeto. Responsável por inicializar a interface do Gerenciador de Frequência e Notas.
+ * Main
+ */
 public class Main {
+    /**
+     * Instância estática da turma que está sendo manipulada e gerenciada no momento.
+     */
     private static Turma turmaAtiva = new Turma();
+    /**
+     * Objeto scanner estático utilizado para capturar as entradas de texto do usuário via terminal.
+     */
     private static Scanner scanner = new Scanner(System.in);
+    /**
+     * Método principal que serve como ponto de entrada da aplicação exibindo o menu e capturando as opções escolhidas pelo usuário.
+     * @param a Argumentos passados via linha de comando (não utilizados nessa aplicação)
+     */
     public static void main(String[] a) {
         int opcao = 0;
         do {
@@ -20,7 +33,9 @@ public class Main {
         }
         while (opcao != 12);
     }
-
+    /**
+     * Exibe o menu principal do sistema no console de texto e lista todas as opções disponíveis no menu.
+     */
     private static void exibirMenu() {
         System.out.println("\n================================================");
         System.out.println("        Gerenciador de Frequência e Notas       ");
@@ -44,7 +59,10 @@ public class Main {
         System.out.println("[12]. Sair.");
         System.out.println("Escolha uma opção: ");
     }
-
+    /**
+     * Recebe a opção escolhida pelo usuário e direciona a execução para o método correspondente.
+     * @param opcao O número que representa a escolha do usuário no menu.
+     */
     private static void processarOpcao(int opcao){
         switch(opcao) {
             case 1:
@@ -88,7 +106,9 @@ public class Main {
                 System.out.println("\nComando Inválido! Tente novamente.");
         }
     }
-
+    /**
+     * Realiza o processo de cadastro de uma nova matrícula solicitando nome e a carga horária para vincular à turma ativa.
+     */
     private static void cadastrarMateria(){ 
         System.out.println("\n--- Cadastro de Matéria ---");
         System.out.print("Nome da Matéria: ");
@@ -108,7 +128,9 @@ public class Main {
             System.out.println("[ERRO] A carga horária deve ser um número inteiro.");
         }
     }
-
+    /**
+     * Realiza o processo de cadastro de um professor solicitando o nome e a matrícula para vincular à turma ativa.
+     */
     private static void cadastrarProfessor() {
         System.out.println("\n--- Cadastro de Professor ---");
         System.out.print("Nome do Professor: ");
@@ -124,7 +146,9 @@ public class Main {
         System.out.println("[SUCESSO] Professor vinculado à turma com sucesso!");
 
     }
-
+    /**
+     * Realiza o processo de cadastro e matrícula de um novo aluno solicitando o nome e a matrícula para vincular à turma ativa.
+     */
     private static void cadastrarAluno() {
         System.out.println("\n--- Cadastro de Aluno ---");
         System.out.print("Nome do Aluno: ");
@@ -139,7 +163,11 @@ public class Main {
         turmaAtiva.matricularAluno(novoAluno);
         System.out.println("[SUCESSO] Aluno cadastrado na turma com sucesso!");
     }
-
+    /**
+     * Inicia o processo de lançamento de notas.
+     * Lista os alunos da turma e solicita que o usuário selecione um deles por índice.
+     * Em seguida, permite a escolha do tipo de avaliação e cadastra os respectivos valores, efetuando o lançamento no registro do aluno selecionado.
+     */
     private static void lancarAvaliacao() {
         List<Aluno> listaAlunos = turmaAtiva.getListaAlunos();
 
@@ -205,7 +233,10 @@ public class Main {
         }
 
     }
-
+    /**
+     * Inicia o processo de lançamento de faltas para um aluno.
+     * Exibe a lista de alunos matriculados, solicita a seleção por meio de índice e adiciona a quantidade de faltas informadas no registro atual do aluno selecionado.
+     */
     private static void registrarFaltasAluno() {
         List<Aluno> listaAlunos = turmaAtiva.getListaAlunos();
  
@@ -236,21 +267,28 @@ public class Main {
             System.out.println("\n[ERRO] Por favor, digite um valor numérico inteiro.");
         }
     }
-
+    /**
+     * Chama o método para emitir e imprimir o relatório da turma com frequências e notas de todos os alunos.
+     */
     private static void emitirRelatorio() {
         System.out.println("\n --- Emitindo Relatório Geral ---");
         turmaAtiva.emitirRelatorioTurma();
     }
-
+    /**
+     * Chama o método para exibir as informações sobre a matéria presente cadastrada na turma ativa.
+     */
     private static void listarMaterias() {
         turmaAtiva.listarMaterias();
     }
- 
+    /**
+     * Chama o método responsável para exibir as informações sobre o professor presente vinculado à turma ativa.
+     */
     private static void listarProfessores() {
         turmaAtiva.listarProfessores();
     }
-
-
+    /**
+     * Exclui o vínculo da matéria com turma ativa e solicita uma confirmação de segurança (S/N) antes de efetuar a remoção.
+     */
     private static void removerMateria() {
         System.out.println("\n--- Remover Matéria ---");
  
@@ -271,7 +309,9 @@ public class Main {
         }
 
     }
-
+    /**
+     * Exclui o vínculo do professor com turma ativa e solicita uma confirmação de segurança(S/N) antes de efetuar a remoção.
+     */
     private static void removerProfessor() {
         System.out.println("\n--- Remover Professor ---");
  
@@ -293,7 +333,10 @@ public class Main {
         }
 
     }
-
+    /**
+     * Remove um aluno específico da lista de matriculados na turma.
+     * Exibe a listagem atual de alunos e solicita a inserção do índice numérico do estudante que deve ser removido e exige confirmação de segurança (S/N) antes de concluir.
+     */
     private static void removerAluno() {
         System.out.println("\n--- Remover Aluno ---");
         List<Aluno> listaAlunos = turmaAtiva.getListaAlunos();
@@ -329,7 +372,10 @@ public class Main {
             System.out.println("\n[ERRO] Por favor, digite um valor numérico inteiro.");
         }
     }
-
+    /**
+     * Método auxiliar utilizado para iterar e imprimir uma lista formatada de alunos com o índice ao lado dos dados para facilitar a seleção nos menus.
+     * @param alunos A lista de objetos que deve ser impressa.
+     */
     private static void listarAlunos(List<Aluno> alunos) {
         System.out.println("\n--- Alunos Matriculados ---");
         for (int i = 0; i < alunos.size(); i++) {
