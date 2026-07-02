@@ -4,7 +4,7 @@
 
  ## 1. Diagrama de Classes
  
-![Diagrama de classes do Gerenciador de Frequências e Notas](docs/diagrama.png)
+![Diagrama de classes do Gerenciador de Frequências e Notas](diagrama.png)
 
 ## 2. Regras de Negócio
  
