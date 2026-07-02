@@ -1,4 +1,4 @@
-package src.main;
+package main;
 /**
  * Classe que representa uma prova
  * Prova

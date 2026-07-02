@@ -1,4 +1,4 @@
-package src.main;
+package main;
 /**
  * Interface feita para possibilitar que um relatório seja gerável
  * RelatorioGeravel

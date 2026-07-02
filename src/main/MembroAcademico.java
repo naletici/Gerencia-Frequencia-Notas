@@ -1,4 +1,4 @@
-package src.main;
+package main;
 /**
  * Classe abstrata que representa um membro acadêmico (Aluno ou Professor)
  * MembroAcademico

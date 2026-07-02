@@ -1,4 +1,4 @@
-package src.main;
+package main;
 /**
  * Classe que representa um trabalho prático, no qual a nota total é a nota obtida multiplicada pelo peso
  */

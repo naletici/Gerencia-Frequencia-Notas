@@ -1,4 +1,4 @@
-package src.main;
+package main;
 /**
  * Exceção lançada quando uma nota está fora do limite estabelecido
  * NotaInvalidaException

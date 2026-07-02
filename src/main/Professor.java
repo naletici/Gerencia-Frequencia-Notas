@@ -1,4 +1,4 @@
-package src.main;
+package main;
 /**
  * Classe que representa um professor com a capacidade de gerar seu próprio relatório
  * Professor

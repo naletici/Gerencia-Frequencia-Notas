@@ -1,4 +1,4 @@
-package src.main;
+package main;
 /**
  * Classe que representa uma matéria e a sua carga horária total
  * Materia

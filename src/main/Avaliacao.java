@@ -1,4 +1,4 @@
-package src.main;
+package main;
 /**
  * Classe abstrata que representa uma avaliação qualquer de um aluno
  * Avaliacao
