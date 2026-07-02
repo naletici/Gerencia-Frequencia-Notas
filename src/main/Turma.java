@@ -1,18 +1,28 @@
 package src.main;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Classe que representa uma turma, agregando matéria, o professor e os alunos matriculados
+ * Turma
+ */
 public class Turma {
     private Materia materia;
     private Professor professor;
     private List<Aluno> listaAlunos = new ArrayList<>();
-
+    /**
+     * Método para matricular um aluno na turma (alunos nulos são ignorados)
+     * @param aluno O aluno a ser matriculado
+     */
     public void matricularAluno(Aluno aluno) {
         if (aluno != null) {
             listaAlunos.add(aluno);
         }
     }
-
+    /**
+     * Método para remover um aluno da turma pelo índice
+     * @param indice O índice do aluno na lista
+     * @return true se o aluno foi removido, ou false se o índice era inválido
+     */
     public boolean removerAluno(int indice) {
         if (indice >= 0 && indice < listaAlunos.size()) {
             listaAlunos.remove(indice);
@@ -20,17 +30,22 @@ public class Turma {
         }
         return false;
     }
-
-    
+    /**
+     * Método para remover matéria da turma
+     */
     public void removerMateria() {
         this.materia = null;
     }
-
+    /**
+     * Método para remover o professor da turma
+     */
     public void removerProfessor() {
         this.professor = null;
     }
-
-        public void listarMaterias() {
+    /**
+     * Método para listar a matéria da turma com carga horária, limite de faltas e alunos matriculados
+     */
+    public void listarMaterias() {
         System.out.println("\n=== LISTAGEM DE MATÉRIAS ===");
  
         if (materia == null) {
@@ -53,7 +68,9 @@ public class Turma {
         }
         System.out.println("============================");
     }
- 
+    /**
+     * Método para listar o professor da turma e a matéria que ele leciona
+     */
     public void listarProfessores() {
         System.out.println("\n=== LISTAGEM DE PROFESSORES ===");
  
@@ -73,7 +90,9 @@ public class Turma {
         }
         System.out.println("================================");
     }
-
+    /**
+     * Método para emitir relatório geral da turma com o relatório e a situação final de cada aluno
+     */
     public void emitirRelatorioTurma() {
         if (materia == null || professor == null) {
             System.out.println("\n[ERRO] A turma ainda não possui Matéria ou Professor cadastrados.");
@@ -100,23 +119,38 @@ public class Turma {
             System.out.println("---------------------------------");
         }
     }
-
+    /**
+     * Método para obter a matéria da turma
+     * @return A matéria da turma, ou null se não houver
+     */
     public Materia getMateria() {
         return materia;
     }
-
+    /**
+     * Métod para definir a matéria da turma
+     * @param materia A matéria a ser associada
+     */
     public void setMateria(Materia materia) {
         this.materia = materia;
     }
-
+    /**
+     * Método para obter o professor da turma
+     * @return O professor da turma, ou null se não houver
+     */
     public Professor getProfessor() {
         return professor;
     }
-
+    /**
+     * Método para definir o professor da turma
+     * @param professor O professor a ser associado
+     */
     public void setProfessor(Professor professor) {
         this.professor = professor;
     }
-
+    /**
+     * Método para obter a lista de alunos matriculados
+     * @return A lista de alunos da turma
+     */
     public List<Aluno> getListaAlunos() {
         return listaAlunos;
     }
