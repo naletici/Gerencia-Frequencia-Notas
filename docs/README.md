@@ -30,4 +30,36 @@ O sistema implementa as 17 regras de negócio abaixo (RN-01 a RN-17).
 | RN-16 | É possível **listar a matéria** da turma (com carga horária, limite de faltas e alunos matriculados). |
 | RN-17 | É possível **listar o professor** da turma (e a matéria que ele leciona). |
 
+## 3. Tecnologias Utilizadas
+- **Java** (JDK)
+- **JUnit 5** (Standalone Console para testes unitários)
 
+## 4. Pré-requisitos
+Certifique-se de ter o [Java JDK](https://www.oracle.com/java/technologies/downloads/) instalado na sua máquina e configurado nas variáveis de ambiente.
+
+## 5. Como compilar e executar a aplicação
+Para rodar o Gerenciador de Frequências e Notas (Menu Interativo), abra o terminal na raiz do projeto e execute os comandos abaixo:
+
+```bash
+# Cria a pasta bin para armazenar os arquivos compilados (se não existir)
+mkdir -p bin
+
+# Compila os arquivos de código-fonte
+javac -encoding UTF-8 -d bin src/main/*.java
+
+# Executa a classe principal
+java -cp bin main.Main
+````
+
+## 6. Como executar os testes
+O projeto contém testes automatizados. Para compilar e executar com JUnit, execute os seguintes comandos abaixo:
+````bash
+# Cria a pasta bin (caso ainda não tenha sido criada)
+mkdir -p bin
+
+# Compila o código-fonte e os testes, incluindo o .jar do JUnit no classpath
+javac -encoding UTF-8 -cp lib/junit-platform-console-standalone-6.1.0.jar -d bin src/main/*.java src/test/*.java
+
+# Executa os testes usando o JUnit Standalone
+java -jar lib/junit-platform-console-standalone-6.1.0.jar execute --class-path bin --scan-class-path
+````
