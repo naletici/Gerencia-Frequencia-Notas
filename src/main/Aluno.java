@@ -47,7 +47,7 @@ public class Aluno extends MembroAcademico implements RelatorioGeravel {
             return "Em Avalição Final.";
         }
         
-        double somaFinal = media + notaFinal;
+        double somaFinal = (media + notaFinal) / 2.0;
         if (somaFinal >= 5.0) {
             return "Aprovado na Final.";
         } else {
