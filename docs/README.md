@@ -63,3 +63,10 @@ javac -encoding UTF-8 -cp lib/junit-platform-console-standalone-6.1.0.jar -d bin
 # Executa os testes usando o JUnit Standalone
 java -jar lib/junit-platform-console-standalone-6.1.0.jar execute --class-path bin --scan-class-path
 ````
+
+## 7. Como gerar e visualizar o Javadoc
+Para gerar a documentação técnica das classes em formato HTML, execute o comando abaixo na raiz do projeto:
+
+```bash
+javadoc -encoding UTF-8 -d docs/javadoc src/main/*.java
+````
