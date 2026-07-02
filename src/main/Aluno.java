@@ -57,7 +57,7 @@ public class Aluno extends MembroAcademico implements RelatorioGeravel {
 
     @Override
     public void gerarRelatorio() {
-        System.out.printf("Aluno(a): %s | Matrícula %s | Faltas: %d\n");
+        System.out.printf("Aluno(a): %s | Matrícula %s | Faltas: %d\n", getNome(), getMatricula(), faltas);
         System.out.println("  [Nota das Avaliações]:");
         if (avaliacoes.isEmpty()) {
             System.out.println("  - Nenhuma Avaliação registrada ainda.");
